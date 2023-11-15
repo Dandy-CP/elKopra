@@ -8,11 +8,13 @@ import {
 } from "@/types/client.types";
 
 export const client = axios.create({
-  baseURL: "https://newsapi.org/v2/",
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   timeout: 45000,
   headers: {
     Accept: "application/json",
-    "Accept-Language": "id",
+  },
+  params: {
+    apiKey: process.env.NEXT_PUBLIC_API_KEY,
   },
 });
 
